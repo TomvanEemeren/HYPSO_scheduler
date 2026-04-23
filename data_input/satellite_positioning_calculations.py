@@ -7,7 +7,7 @@ import requests
 ts = skf.load.timescale()
 
 def updateTLE (HYPSOnr: int):
-    url = f'https://celestrak.com/NORAD/elements/gp.php?NAME=HYPSO-{HYPSOnr}&FORMAT=TLE'
+    url = f'https://celestrak.org/NORAD/elements/gp.php?NAME=HYPSO-{HYPSOnr}&FORMAT=TLE'
     filename = os.path.join(os.path.dirname(__file__), f"HYPSO_data/HYPSO-{HYPSOnr}_TLE.txt")
 
     skf_hypso = skf.load.tle_file(url, filename=filename, reload=False)[0]
@@ -39,7 +39,7 @@ def createSatelliteObject(HYPSOnr: int) -> skf.EarthSatellite:
     """
 
     # HYPSO 1 data
-    hypsoTleUrl = f'https://celestrak.com/NORAD/elements/gp.php?NAME=HYPSO-{HYPSOnr}&FORMAT=TLE'
+    hypsoTleUrl = f'https://celestrak.org/NORAD/elements/gp.php?NAME=HYPSO-{HYPSOnr}&FORMAT=TLE'
     hypsoTlePath = os.path.join(os.path.dirname(__file__), f"HYPSO_data/HYPSO-{HYPSOnr}_TLE.txt")
 
     if HYPSOnr == 1 or HYPSOnr == 2:
